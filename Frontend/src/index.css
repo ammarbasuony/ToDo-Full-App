@@ -1,0 +1,30 @@
+@import url("./styles/_fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+body {
+  font-family: "Poppins";
+  font-weight: 100;
+}

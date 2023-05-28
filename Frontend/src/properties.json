@@ -1,0 +1,4 @@
+{
+  "API_URL": "https://localhost:2020/api/",
+  "AUTH_COOKIE_NAME": "todo_auth_token"
+}

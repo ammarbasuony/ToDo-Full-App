@@ -1,0 +1,16 @@
+{
+  "short_name": "ToDo App",
+  "name": "ToDo App",
+  "description": "ToDo App for managing your daily tasks",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#234567",
+  "background_color": "#ffffff"
+}
