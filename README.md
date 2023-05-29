@@ -4,9 +4,9 @@ This is a simple to-do app that allows you to add ✏️, edit 📝 and delete �
 
 Live Preview: [https://ammaryaser.com/Projects/To-Do](https://ammaryaser.com/Projects/To-Do) 🌐
 
-![ToDo 1](https://github.com/ammarbasuony/ToDo-App/blob/main/docs/1.png)
-![ToDo 2](https://github.com/ammarbasuony/ToDo-App/blob/main/docs/2.png)
-![ToDo 3](https://github.com/ammarbasuony/ToDo-App/blob/main/docs/3.png)
+![ToDo 1](https://github.com/ammarbasuony/ToDo-Full-App/blob/main/docs/1.png)
+![ToDo 2](https://github.com/ammarbasuony/ToDo-Full-App/blob/main/docs/2.png)
+![ToDo 3](https://github.com/ammarbasuony/ToDo-Full-App/blob/main/docs/3.png)
 
 ## Installation 💻
 
