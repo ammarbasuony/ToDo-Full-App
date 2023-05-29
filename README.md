@@ -23,6 +23,18 @@ Live Preview: [https://ammaryaser.com/Practice/ToDo-App](https://ammaryaser.com/
 The project will be working on the server on port 3000 e.g. http://127.0.0.1:3000 👨‍💻
 ```
 
+## Test Credentials
+
+```
+Email: admin@gmail.com
+Password: admin
+```
+
+```
+Email: user@gmail.com
+Password: user
+```
+
 ## Deployment
 
 1. Run `npm run build` in the root directory of the project to build the project to `build` folder 📦
