@@ -18,23 +18,32 @@ import {
 //  CRUD
 // ==========================================
 export const index = async (req, res) => {
-  const { page = 1, limit = 20, title, content, todo } = req.query;
+  const { page = 1, limit = 20, title, content, user } = req.query;
   const startIndex = (page - 1) * limit;
+
+  if (user) {
+    const isUserIdNotValid = isValidId(user);
+    if (isUserIdNotValid) return res.status(401).json(isUserIdNotValid);
+
+    const isUserNotExist = await recordExists(User, user);
+    if (isUserNotExist) return res.status(404).json(isUserNotExist);
+  }
 
   try {
     let todos = await ToDo.find({
       ...(title && { title: { $regex: title, $options: "i" } }),
       ...(content && { content: { $regex: content, $options: "i" } }),
-      ...(todo && { todo }),
+      ...(user && { user }),
     })
       .skip(startIndex)
       .limit(limit)
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .populate("user");
 
     const totalToDos = await ToDo.countDocuments({
       ...(title && { title: { $regex: title, $options: "i" } }),
       ...(content && { content: { $regex: content, $options: "i" } }),
-      ...(todo && { todo }),
+      ...(user && { user }),
     });
 
     const totalPages = Math.ceil(totalToDos / limit);
@@ -55,7 +64,7 @@ export const GetToDoById = async (req, res) => {
     const isRecordExists = await recordExists(ToDo, id);
     if (isRecordExists) return res.status(404).json(isRecordExists);
 
-    let todo = await ToDo.findById(id);
+    let todo = await ToDo.findById(id).populate("user");
 
     res.json({ success: true, data: todo });
   } catch (err) {

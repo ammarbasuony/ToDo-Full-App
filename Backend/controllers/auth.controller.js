@@ -89,12 +89,10 @@ export const GetUserFromToken = async (req, res) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_USER_SECRET);
 
-    const isRecordExists = await recordExists(User, decoded.id);
+    const isRecordExists = await recordExists(User, decoded.data._id);
     if (isRecordExists) return res.status(404).json(isRecordExists);
 
-    const user = await User.findById(decoded.id).populate(
-      "country state city favouriteProducts"
-    );
+    const user = await User.findById(decoded.data._id);
 
     // Remove password from the response
     const userData = user.toObject();

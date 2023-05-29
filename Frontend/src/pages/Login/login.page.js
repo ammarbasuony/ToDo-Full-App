@@ -1,5 +1,18 @@
 import React, { useState } from "react";
 import * as Form from "@radix-ui/react-form";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+// API
+import { login } from "api/auth.api";
+
+// Properties
+import properties from "properties.json";
+
+// Actions
+import { setUser } from "store/actions";
 
 // Shared
 import Layout from "shared/layout.shared";
@@ -9,20 +22,36 @@ import Logo from "assets/media/png/icon.png";
 
 // Helper
 import icons from "helper/icons.helper";
+import { UserType } from "helper/constants.helper";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    setLoading(true);
+    if (formData.email === "" || formData.password === "")
+      return toast.error("Please fill all the fields");
 
-    console.log(formData);
+    setLoading(true);
+    const res = await login(formData.email, formData.password);
+    setLoading(false);
+
+    if (!res.success) return res.errors.forEach((err) => toast.error(err));
+
+    Cookies.set(properties.AUTH_COOKIE_NAME, res.data.token);
+
+    dispatch(setUser(res.data.user));
+
+    if (res.data.user.type === UserType.ADMIN) return navigate("/admin");
+    else return navigate("/user");
   };
 
   return (

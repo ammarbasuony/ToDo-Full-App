@@ -31,7 +31,8 @@ export const index = async (req, res) => {
     })
       .skip(startIndex)
       .limit(limit)
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .populate("users");
 
     const totalGroups = await Group.countDocuments({
       ...(label && { label: { $regex: label, $options: "i" } }),
@@ -55,7 +56,7 @@ export const GetGroupById = async (req, res) => {
     const isRecordExists = await recordExists(Group, id);
     if (isRecordExists) return res.status(404).json(isRecordExists);
 
-    let group = await Group.findById(id);
+    let group = await Group.findById(id).populate("users");
 
     res.json({ success: true, data: group });
   } catch (err) {
