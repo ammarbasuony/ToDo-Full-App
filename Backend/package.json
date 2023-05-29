@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "deploy": "pm2 start index.js --name 'ToDo API' && pm2 save"
   },
   "keywords": [
     "todo",

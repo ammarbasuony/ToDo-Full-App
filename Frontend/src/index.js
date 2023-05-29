@@ -13,7 +13,7 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
+  <Router basename="/Practice/ToDo-App">
     <Provider store={store}>
       <App />
       <ToastContainer

@@ -1,6 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
+  "homepage": "/Practice/ToDo-App",
   "private": true,
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",

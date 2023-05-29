@@ -2,7 +2,7 @@
 
 This is a simple to-do app that allows you to add ✏️, edit 📝 and delete 🗑️. This app was created using Express 🚀, MongoDB 📦, React ⚛️ and Redux ⚛️🔴.
 
-Live Preview: [https://ammaryaser.com/Projects/To-Do](https://ammaryaser.com/Projects/To-Do) 🌐
+Live Preview: [https://ammaryaser.com/Practice/ToDo-App](https://ammaryaser.com/Practice/ToDo-App) 🌐
 
 ![ToDo 1](https://github.com/ammarbasuony/ToDo-Full-App/blob/main/docs/1.png)
 ![ToDo 2](https://github.com/ammarbasuony/ToDo-Full-App/blob/main/docs/2.png)
